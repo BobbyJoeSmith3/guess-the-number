@@ -25,20 +25,24 @@ def range1000():
     pass
 
 def input_guess(guess):
+    # convert user input to interger
+    user_input = int(guess)
+
     # main game logic goes here
 
-    # remove this when you add your code
-    pass
+    print "Guess was", user_input
 
 
 # create frame
 frame = simplegui.create_frame('Guess The Number', 300, 300)
 
-# create input field
-inp = frame.add_input('Guess', input_guess, 100)
 
 # register event handlers for control elements and start frame
 
+# input field for player guesses
+inp = frame.add_input('Enter Guess', input_guess, 100)
+
+frame.start()
 
 # call new_game
 new_game()
