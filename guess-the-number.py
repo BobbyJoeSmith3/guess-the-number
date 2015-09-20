@@ -4,27 +4,29 @@
 import simplegui
 import random
 
+# initialize global variables used in your code
+num_range = 100
+
 # helper function to start and restart the game
 def new_game():
     # initialize global variables used in your code here
     global secret_number
-    secret_number = random.randrange(0, 100)
+    secret_number = random.randrange(0, num_range)
+    print "New game. Range is 0 to", num_range
 
 
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game
+    global num_range
+    num_range = 100
     new_game()
-    global secret_number
-    secret_number = random.randrange(0, 100)
-    print "New game. Range is [0,100)"
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
+    global num_range
+    num_range = 1000
     new_game()
-    global secret_number
-    secret_number = random.randrange(0, 1000)
-    print "New game. Range is [0,1000)"
 
 def input_guess(guess):
     # convert user input to interger
