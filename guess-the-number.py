@@ -41,6 +41,9 @@ def input_guess(guess):
     elif secret_number == user_input:
         print "Correct"
 
+    # create space between entries
+    print ""
+
 
 
 
