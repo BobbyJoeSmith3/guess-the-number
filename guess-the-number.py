@@ -6,7 +6,6 @@ import random
 
 # initialize global variables used in your code
 num_range = 100
-num_of_guesses = 7
 
 # helper function to start and restart the game
 def new_game():
@@ -14,6 +13,11 @@ def new_game():
     global secret_number, num_of_guesses
     secret_number = random.randrange(0, num_range)
     print "New game. Range is 0 to", num_range
+    # determine number of guesses to start with
+    if num_range == 100:
+        num_of_guesses = 7
+    elif num_range == 1000:
+        num_of_guesses = 10
     # tell player how many guesses they have left
     print "Number of remaining guesses is", num_of_guesses
     # create space between entries
@@ -26,14 +30,12 @@ def range100():
     # button that changes the range to [0,100) and starts a new game
     global num_range, num_of_guesses
     num_range = 100
-    num_of_guesses = 7
     new_game()
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
     global num_range, num_of_guesses
     num_range = 1000
-    num_of_guesses = 10
     new_game()
 
 def input_guess(guess):
@@ -71,11 +73,11 @@ zero_to_one_thousand = frame.add_button('Range is [0,1000)', range1000, 150)
 # input field for player guesses
 inp = frame.add_input('Enter Guess', input_guess, 150)
 
-# start all frame event handlers
-frame.start()
 
 # call new_game
 new_game()
 
+# start all frame event handlers
+frame.start()
 
 # always remember to check your completed program against the grading rubric
