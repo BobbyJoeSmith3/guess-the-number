@@ -28,9 +28,18 @@ def input_guess(guess):
     # convert user input to interger
     user_input = int(guess)
 
-    # main game logic goes here
-
+    # print user's guess to console
     print "Guess was", user_input
+
+    # main game logic goes here
+    if secret_number > user_input:
+        print "Higher"
+    elif secret_number < user_input:
+        print "Lower"
+    elif secret_number == user_input:
+        print "Correct"
+
+
 
 
 # create frame
