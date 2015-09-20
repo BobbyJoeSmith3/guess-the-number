@@ -73,7 +73,6 @@ zero_to_one_thousand = frame.add_button('Range is [0,1000)', range1000, 150)
 # input field for player guesses
 inp = frame.add_input('Enter Guess', input_guess, 150)
 
-
 # call new_game
 new_game()
 
