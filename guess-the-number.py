@@ -6,34 +6,46 @@ import random
 
 # initialize global variables used in your code
 num_range = 100
+num_of_guesses = 7
 
 # helper function to start and restart the game
 def new_game():
     # initialize global variables used in your code here
-    global secret_number
+    global secret_number, num_of_guesses
     secret_number = random.randrange(0, num_range)
     print "New game. Range is 0 to", num_range
+    # tell player how many guesses they have left
+    print "Number of remaining guesses is", num_of_guesses
+    # decrement the number of guesses player has left
+    num_of_guesses = num_of_guesses - 1
+    # create space between entries
+    print ""
+
 
 
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game
-    global num_range
+    global num_range, num_of_guesses
     num_range = 100
+    num_of_guesses = 7
     new_game()
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
-    global num_range
+    global num_range, num_of_guesses
     num_range = 1000
+    num_of_guesses = 10
     new_game()
 
 def input_guess(guess):
+    global num_of_guesses
     # convert user input to interger
     user_input = int(guess)
 
-    # print user's guess to console
+    # print user's guess to console and number of guesses left
     print "Guess was", user_input
+    print "Number of remaining guesses is", num_of_guesses
 
     # main game logic goes here
     if secret_number > user_input:
@@ -42,6 +54,9 @@ def input_guess(guess):
         print "Lower"
     elif secret_number == user_input:
         print "Correct"
+
+    # decrement the number of guesses player has left
+    num_of_guesses = num_of_guesses - 1
 
     # create space between entries
     print ""
