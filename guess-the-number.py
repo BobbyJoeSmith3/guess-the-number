@@ -54,6 +54,8 @@ def input_guess(guess):
         print "Lower"
     elif secret_number == user_input:
         print "Correct"
+        print ""
+        new_game()
     # decrement the number of guesses player has left
     num_of_guesses = num_of_guesses - 1
     # create space between entries
